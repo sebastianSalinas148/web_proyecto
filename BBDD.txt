@@ -1,0 +1,67 @@
+CREATE DATABASE IF NOT EXISTS gestion_cvs;
+USE gestion_cvs;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(60) NOT NULL,
+    apellidos VARCHAR(80) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    usuario VARCHAR(40) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+
+USE gestion_cvs;
+
+CREATE TABLE IF NOT EXISTS cvs (
+    id_cv INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    titulo VARCHAR(120) NOT NULL,
+    perfil_profesional TEXT,
+    telefono VARCHAR(20),
+    direccion VARCHAR(150),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+);
+
+
+USE gestion_cvs;
+
+CREATE TABLE IF NOT EXISTS educacion (
+    id_educacion INT AUTO_INCREMENT PRIMARY KEY,
+    id_cv INT NOT NULL,
+    institucion VARCHAR(100) NOT NULL,
+    carrera VARCHAR(100),
+    grado VARCHAR(60),
+    fecha_inicio DATE,
+    fecha_fin DATE,
+    FOREIGN KEY (id_cv) REFERENCES cvs(id_cv) ON DELETE CASCADE
+);
+
+
+USE gestion_cvs;
+
+CREATE TABLE IF NOT EXISTS experiencia (
+    id_experiencia INT AUTO_INCREMENT PRIMARY KEY,
+    id_cv INT NOT NULL,
+    empresa VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100),
+    descripcion TEXT,
+    fecha_inicio DATE,
+    fecha_fin DATE,
+    FOREIGN KEY (id_cv) REFERENCES cvs(id_cv) ON DELETE CASCADE
+);
+
+
+USE gestion_cvs;
+
+CREATE TABLE IF NOT EXISTS habilidades (
+    id_habilidad INT AUTO_INCREMENT PRIMARY KEY,
+    id_cv INT NOT NULL,
+    nombre VARCHAR(60) NOT NULL,
+    nivel VARCHAR(20),
+    FOREIGN KEY (id_cv) REFERENCES cvs(id_cv) ON DELETE CASCADE
+);
+
+-- Nota: primero registra un usuario desde registro.php (para que la
+-- contraseña quede correctamente encriptada con password_hash).
