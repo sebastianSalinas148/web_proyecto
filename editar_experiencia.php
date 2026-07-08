@@ -54,6 +54,6 @@ if (!$exp) { header("Location: panel.php"); exit; }
         <p><a href="cv_detalle.php?id=<?php echo $exp['id_cv']; ?>">Volver al CV</a></p>
     </div>
 
-    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: Estudiante del curso</footer>
+    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: sebastian salinas</footer>
 </body>
 </html>

@@ -1,0 +1,16 @@
+Esta carpeta debe contener la libreria FPDF para que generar_pdf.php funcione.
+
+Pasos:
+1. Ve a http://www.fpdf.org/ (o su repositorio oficial en GitHub: github.com/Setasign/FPDF)
+2. Descarga el zip de la version mas reciente
+3. Copia el archivo "fpdf.php" y la carpeta "font/" del zip descargado
+   AQUI DENTRO de esta carpeta "fpdf/"
+
+Al final debe quedar asi:
+fpdf/
+  fpdf.php
+  font/
+    ...
+
+No lo incluyo directo en este proyecto porque es una libreria externa completa
+(miles de lineas) y es mejor que la descargues tu mismo de la fuente oficial.

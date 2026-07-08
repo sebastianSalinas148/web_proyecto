@@ -54,6 +54,6 @@ if (!$cv) { header("Location: panel.php"); exit; }
         <p><a href="panel.php">Volver a mis CVs</a></p>
     </div>
 
-    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: Estudiante del curso</footer>
+    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: sebastian salinas</footer>
 </body>
 </html>

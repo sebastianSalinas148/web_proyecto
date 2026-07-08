@@ -69,7 +69,10 @@ $habilidades = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="form-container" style="width: 500px;">
         <h2><?php echo htmlspecialchars($cv['titulo']); ?></h2>
-        <p><a href="panel.php">Volver a mis CVs</a></p>
+        <p>
+            <a href="panel.php">Volver a mis CVs</a> |
+            <a href="generar_pdf.php?id=<?php echo $id_cv; ?>" target="_blank">Descargar CV en PDF</a>
+        </p>
         <hr>
 
         <h3>Educacion</h3>
@@ -138,6 +141,6 @@ $habilidades = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </div>
 
-    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: Estudiante del curso</footer>
+    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: sebastian salinas</footer>
 </body>
 </html>

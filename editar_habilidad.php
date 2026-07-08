@@ -10,7 +10,7 @@ $id_habilidad = $_GET['id'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("UPDATE habilidades h JOIN cvs c ON h.id_cv = c.id_cv
                             SET h.nombre = ?, h.nivel = ?
-                      WHERE h.id_habilidad = ? AND c.id_usuario = ?");
+                            WHERE h.id_habilidad = ? AND c.id_usuario = ?");
     $stmt->execute([$_POST['nombre'], $_POST['nivel'], $id_habilidad, $id_usuario]);
 
     $stmt2 = $pdo->prepare("SELECT id_cv FROM habilidades WHERE id_habilidad = ?");
@@ -55,6 +55,6 @@ if (!$hab) { header("Location: panel.php"); exit; }
         <p><a href="cv_detalle.php?id=<?php echo $hab['id_cv']; ?>">Volver al CV</a></p>
     </div>
 
-    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: Estudiante del curso</footer>
+    <footer>MiCV &copy; <?php echo date("Y"); ?> - Desarrollado por: sebastian salinas</footer>
 </body>
 </html>
